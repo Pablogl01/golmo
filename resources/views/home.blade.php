@@ -1,9 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<div>
-    <div class="row justify-content-center ">
-        <div class="col-md-12 d-flex flex-column">
+<div style="width:100% !important;">
+    <div class="d-flex flex-row justify-content-center" style="width:100% !important;">
+        <div class=" d-flex flex-column" style="width:100% !important;">
             @if(count($carmodel) != 0)
             @foreach ($carmodel as $model)
             <div class="col d-flex flex-column p-0 justify-content-center" style="background-color:grey;">

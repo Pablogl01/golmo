@@ -75,12 +75,13 @@ class RegisterController extends Controller
         else{
             $data['gender'] = 2;
         }
+        
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'role_id' => 2,
-            'direccion' => $data['direccion'],
+            'direccion' => "sin asignar",
             'gender' => $data['gender'],
             'phone_number' => $data['phone_number'],
             'birthdate' => $data['birthdate'],

@@ -20,7 +20,7 @@
             <textarea name="description" value="" class="form form-control" required></textarea>
             <br/>
             <br/>
-            <input type="submit" class="btn btn-primary" value="Añadir">
+            <input type="submit" class="btn btn-primary" value="Sigiente">
             <br/>
             <br/>
         </form>

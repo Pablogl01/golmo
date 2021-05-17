@@ -19,7 +19,7 @@
                     <a class="btn rounded-pill text-dark border-dark " style="width:100px;" href="{{route('borrarmodelo',$model->id)}}">BORRAR</a>
                 </div>
             @endforeach
-            <a class="btn rounded-pill text-white bg-dark" style="width:230px;" href="{{route('añadirmodelo')}}">AÑADIR MODELO</a>
+            <a class="btn rounded-pill text-white bg-dark" style="width:230px;" href="{{route('subirmodelo')}}">AÑADIR MODELO</a>
         </div>
     </div>
 </div>

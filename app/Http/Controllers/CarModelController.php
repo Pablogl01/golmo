@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CarModel;
 use App\Models\Gama;
+use App\Http\Controllers\ImagenesController;
+use App\Models\Variante;
 
 class CarModelController extends Controller
 {
@@ -25,9 +27,9 @@ class CarModelController extends Controller
         return view('gestionmodelos',compact('carmodel'));
     }
 
-    public function añadirmodelo(){
+    public function subirmodelo(){
         $gamas = Gama::all();
-        return view('añadirmodelo',compact('gamas'));
+        return view('subirmodelo',compact('gamas'));
     }
 
     public function nuevomodelo(Request $request){
@@ -37,7 +39,11 @@ class CarModelController extends Controller
         'gama_id'=>$gamaid[0]->id,
         'description'=>$request->description
         ]);
-        return $this->gestionmodelos();
+        $modelo = CarModel::all()->last();
+        $modelo_id = $modelo->id;
+        $colores = Variante::where('type','Color')->get();
+        $llantas = Variante::where('type','Llanta')->get();
+        return view('vistaimagenes',compact('modelo','modelo_id','colores','llantas'));
     }
 
     public function editarmodelo($id){
