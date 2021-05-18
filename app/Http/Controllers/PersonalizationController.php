@@ -22,9 +22,9 @@ class PersonalizationController extends Controller
         $llantas = Variante::where("type","Llanta")->where("gama_id",$carmodel[0]->gama_id)->get();
         $motores = Variante::where("type","Motor")->where("gama_id",$carmodel[0]->gama_id)->get();
         $audios = Variante::where("type","Audio")->where("gama_id",$carmodel[0]->gama_id)->get();
-        $Acabados = Variante::where("type","Acabados")->where("gama_id",$carmodel[0]->gama_id)->get();
-    
-        return view('personalizar',compact('carmodel','imagen','color','llantas'));
+        $acabados = Variante::where("type","Acabados")->where("gama_id",$carmodel[0]->gama_id)->get();
+        $precio  = $carmodel[0]->price;
+        return view('personalizar',compact('carmodel','imagen','color','llantas','motores','audios','acabados','precio'));
     }
 
     /**

@@ -15,6 +15,8 @@
             @foreach($variantes as $variante)
                 <p>{{$variante->name}}</p>
                 <img src="{{('storage/'.$variante->image)}}" width="150px" height="150px">
+                <a href="{{route('eliminarvariante',$variante->id)}}">Eliminar</a>
+
             @endforeach
             @else
                 <p>todavia no hay variantes</p>

@@ -50,5 +50,7 @@ Route::post('/nuevavariante', [App\Http\Controllers\VarianteController::class, '
 Route::post('/nuevaimagen', [App\Http\Controllers\ImagenesController::class, 'nuevaimagen'])->name('nuevaimagen')->middleware('auth', 'role:admin');
 Route::post('/previsualizar/{id}', [App\Http\Controllers\UserModelController::class, 'previsualizar'])->name('previsualizar')->middleware('auth');
 Route::post('/guardarperso', [App\Http\Controllers\UserModelController::class, 'guardarperso'])->name('guardarperso')->middleware('auth');
+Route::get('/eliminarvariante/{id}', [App\Http\Controllers\VarianteController::class, 'eliminarvariante'])->name('eliminarvariante')->middleware('auth','role:admin');
+
 
 

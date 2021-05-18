@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Variante;
 use App\Models\User_Model;
 use App\Models\Gama;
+use App\Models\Imagenes;
 
 class VarianteController extends Controller
 {
@@ -41,6 +42,29 @@ class VarianteController extends Controller
         return $this->gestionvariantes();
     }
 
+    public function eliminarvariante($id){
+        $variante = Variante::where("id",$id);
+        if($variante->get()[0]->type == "Color"){
+            $imagenes = Imagenes::where("color",$id);
+            foreach($imagenes->get() as $imagen){
+                $path = $imagen->url;
+                unlink(public_path("storage/".$path));
+            }
+            $imagenes->delete();
+        }elseif($variante->get()[0]->type == "Llanta"){
+            $imagenes = Imagenes::where("llanta",$id);
+            foreach($imagenes->get() as $imagen){
+                $path = $imagen->url;
+                unlink(public_path("storage/".$path));
+                
+            }
+            $imagenes->delete();
+        }else{
+            
+            $variante->delete();
+            return $this->gestionvariantes();
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
