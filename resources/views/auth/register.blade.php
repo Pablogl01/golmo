@@ -8,9 +8,13 @@
 
         $(".inputs").change(function(){
             var email = $("#email").val();
+            var name = $("#name").val();
+            var telefono = $("#phone_number").val();
+            var nacimiento = $("#birthdate").val();
+            var password2 = $("#password-confirm").val();
             var password = $("#password").val();
 
-            if(email != "" && password != ""){
+            if(email != "" && name != "" && password != "" && telefono != "" && nacimiento != "" && password2 != ""){
                 $("#button").css({"width":"100%","margin-bottom":"5px","border":"2px solid #D3D3D3","background-color":"#D3D3D3","outline":"none","font-size":"18px","color":"white"});
             }
             else{
@@ -32,9 +36,9 @@
 
 </script>
 <div class="container-fluid" style="font-family: 'Average Sans', sans-serif;">
-    <div class="row">
+    <div class="row" style="min-height:100%;">
         <div class="col-md-8 d-flex flex-column justify-content-center" style="margin:0;padding:0;background-color:#EEEEEE;">
-            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/novitec-n-largo-mclaren-720s-spider-1-1578597433.jpg" alt="portadalogin" class="img-fluid">
+            <img src="https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/novitec-n-largo-mclaren-720s-spider-1-1578597433.jpg" alt="portadalogin" class="img-fluid" style="min-height:75% !important;">>
             <div class="d-flex flex-column align-items-center" style="font-size:16px;margin-left:2%;margin-right:2%;text-align:center">
                 <div class="d-flex justify-content-center align-items-center pt-4">
                     <p>Texto legal</p><p style="margin-left:15px;margin-right:15px;">|<p>
@@ -80,7 +84,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4 d-flex flex-column justify-content-center" style="background-color:#FFFAFA;">
+        <div class="col-md-4 d-flex flex-column justify-content-center" style="background-color:#FFFAFA;min-height:100% !important;">
             <div class="d-flex flex-column align-items-center">
                 <img src="http://drive.google.com/uc?export=view&id=1UpyHgQ9jYR4aaxlIfSoyWupH-JjGHJ8s" alt="logogolmo" style="max-width:20%;height:auto;">
                 <div style="margin-top:20px;"><p style="font-size:20px;">GOLMO <span style="font-weight:bolder;">ID</span><p></div>
@@ -95,23 +99,23 @@
                         @csrf
                         <div>
                             <div>
-                                <input id="email" type="email" placeholder="Correo electrónico" class="inputs form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <input id="email" type="email" placeholder="Correo electrónico" class="inputs @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
                             </div>
                         </div>
                         <div>
                             <div>
-                                <input id="name" type="text" placeholder="Nombre" class="inputs form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <input id="name" type="text" placeholder="Nombre" class="inputs @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
                             </div>
                         </div>
                         <div>
                             <div class="d-flex flex-row">
-                                <input id="phone_number" type="tel" placeholder="Teléfono" maxlength="9" class="inputs form-control @error('phone_number') is-invalid @enderror" name="phone_number" required autocomplete="phone_number" style="width:49%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
-                                <input id="birthdate" type="date" placeholder="Nacimiento" class="inputs form-control @error('birthdate') is-invalid @enderror" name="birthdate" required autocomplete="birthdate" style="width:49%; margin-left:2%;margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <input id="phone_number" type="tel" placeholder="Teléfono" maxlength="9" class="inputs @error('phone_number') is-invalid @enderror" name="phone_number" required autocomplete="phone_number" style="width:49%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <input id="birthdate" type="date" placeholder="Nacimiento" class="inputs @error('birthdate') is-invalid @enderror" name="birthdate" required autocomplete="birthdate" style="width:49%; margin-left:2%;margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
                             </div>
                         </div>
                         <div>
                             <div class="d-flex flex-row">
-                                <select id="gender" placeholder="Tratamiento" class="inputs form-control @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <select id="gender" placeholder="Tratamiento" class="inputs @error('gender') is-invalid @enderror" name="gender" value="{{ old('gender') }}" required autocomplete="gender" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
                                     <option value="Sin genero">Sin genero</option>
                                     <option value="Hombre">Hombre</option>
                                     <option value="Mujer">Mujer</option>
@@ -120,9 +124,9 @@
                         </div>
                         <div>
                             <div class="d-flex flex-row justify-content-center align-items-center">
-                                <input id="password-confirm" type="password" placeholder="Confirma contraseña" class="inputs form-control" name="password_confirmation" required autocomplete="new-password" style="position:relative;width:49%;margin-right:2%; margin-bottom:5px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <input id="password-confirm" type="password" placeholder="Confirma contraseña" class="inputs" name="password_confirmation" required autocomplete="new-password" style="position:relative;width:49%;margin-right:2%; margin-bottom:5px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
 
-                                <input id="password" type="password" placeholder="Contraseña" class="inputs form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" style="position:relative;width:49%; margin-bottom:5px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                <input id="password" type="password" placeholder="Contraseña" class="inputs @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" style="position:relative;width:49%; margin-bottom:5px; border-right:none; border-top:none; border-left:none; border-bottom:2px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
                                 <svg id="showpasswordimg" style="position:absolute;z-index:100;right:5vw;margin-bottom:5px;" version="1.0" xmlns="http://www.w3.org/2000/svg" width="25px" height="30px" viewBox="0 0 512.000000 512.000000" preserveAspectRatio="xMidYMid meet">
                                 <metadata>
                                 Created by potrace 1.16, written by Peter Selinger 2001-2019

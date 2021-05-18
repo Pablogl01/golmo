@@ -7,6 +7,7 @@ use App\Models\CarModel;
 use App\Models\Gama;
 use App\Http\Controllers\ImagenesController;
 use App\Models\Variante;
+use App\Models\Imagenes;
 
 class CarModelController extends Controller
 {
@@ -37,12 +38,25 @@ class CarModelController extends Controller
         CarModel::create(['name'=>$request->nombre,
         'price'=>$request->precio,
         'gama_id'=>$gamaid[0]->id,
-        'description'=>$request->description
+        'description'=>$request->description,
+        'autonomia'=>$request->autonomia,
+        'aceleracion'=>$request->aceleracion,
+        'velocidad_maxima'=>$request->velocidad_maxima,
+        'caballos'=>$request->caballos,
+        'coeficiente'=>$request->coeficiente,
+        'tren_motriz'=>$request->tren_motriz,
+        'llantas'=>$request->llantas,
+        'capacidad'=>$request->capacidad,
+        'maletero'=>$request->maletero,
+        'peso'=>$request->peso,
+        'description2'=>$request->description2,
+
+
         ]);
         $modelo = CarModel::all()->last();
         $modelo_id = $modelo->id;
-        $colores = Variante::where('type','Color')->get();
-        $llantas = Variante::where('type','Llanta')->get();
+        $colores = Variante::where('type','Color')->where('gama_id',$gamaid[0]->id)->get();
+        $llantas = Variante::where('type','Llanta')->where('gama_id',$gamaid[0]->id)->get();
         return view('vistaimagenes',compact('modelo','modelo_id','colores','llantas'));
     }
 
@@ -52,6 +66,12 @@ class CarModelController extends Controller
     }
 
     public function borrarmodelo($id){
+        $imagenes = Imagenes::where("model_id",$id);
+        foreach($imagenes->get() as $imagen){
+            $path = $imagen->url;
+            unlink(public_path("storage/".$path));
+        }
+        $imagenes->delete();
         $carmodel= CarModel::where("id",$id);
         $carmodel->delete();
         return $this->gestionmodelos();

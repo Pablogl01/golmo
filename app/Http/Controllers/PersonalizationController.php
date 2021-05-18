@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CarModel;
+use App\Models\Imagenes;
+use App\Models\Variante;
 
 class PersonalizationController extends Controller
 {
@@ -11,10 +14,17 @@ class PersonalizationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $carmodel= CarModel::all();
-        return view('infomodelo',compact('carmodel'));
+        $carmodel= CarModel::where("id",$id)->get();
+        $imagen = Imagenes::where("model_id",$id)->get();
+        $color = Variante::where("type","Color")->where("gama_id",$carmodel[0]->gama_id)->get();
+        $llantas = Variante::where("type","Llanta")->where("gama_id",$carmodel[0]->gama_id)->get();
+        $motores = Variante::where("type","Motor")->where("gama_id",$carmodel[0]->gama_id)->get();
+        $audios = Variante::where("type","Audio")->where("gama_id",$carmodel[0]->gama_id)->get();
+        $Acabados = Variante::where("type","Acabados")->where("gama_id",$carmodel[0]->gama_id)->get();
+    
+        return view('personalizar',compact('carmodel','imagen','color','llantas'));
     }
 
     /**

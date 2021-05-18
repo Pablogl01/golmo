@@ -36,5 +36,6 @@
             <input type="submit" class="btn btn-primary" value="Añadir">
         </form>
     </div>
+    <a class="btn btn-primary" href="{{route('gestionmodelos')}}" role="button">Finalizar</button>
 </div>
 @endsection

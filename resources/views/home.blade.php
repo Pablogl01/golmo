@@ -1,23 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="width:100% !important;">
-    <div class="d-flex flex-row justify-content-center" style="width:100% !important;">
-        <div class=" d-flex flex-column" style="width:100% !important;">
+<div class="container-fluid" style="width:100% !important;">
+        <div class="d-flex flex-column justify-content-center align-items-center" style="width:100% !important;">
             @if(count($carmodel) != 0)
-            @foreach ($carmodel as $model)
-            <div class="col d-flex flex-column p-0 justify-content-center" style="background-color:grey;">
-                <p class="h4 font-weight-bold d-flex justify-content-center" style="margin-bottom:60vh; margin-left:28%; width:50%;">{{ __($model->name) }}</p>
-                <div class="d-flex flex-row justify-content-center " style="margin-bottom:100px;">
-                    <a class="btn rounded-pill text-white bg-dark" style="width:230px;" href="{{route('perso',$model->id)}}">PEDIDO PERSONALIZADO</a>
-                    <a class="btn rounded-pill text-black bg-light" style="width:200px; margin-left:20px;" href="{{route('perso',$model->id)}}">INFORMACIÓN</a>
-                </div>
-            </div>
-            @endforeach
+                @for($i = 0;$i < count($carmodel);$i++)
+                @if($i = 0)
+                    <div class="d-flex flex-column" style="height:100vh;width:100vw;background:url({{('storage/'.$image[$i])}}) no-repeat;background-size:cover;position:relative;">
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:20vh;">
+                            <span class="d-flex flex-row justify-content-center h1" id="titulomodelo">{{ __($carmodel[$i]->name) }}</span>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:50vh;width:50%;margin-left:25%;margin-right:25%;opacity:0.85;">
+                            <a class="btn rounded-pill" style="color:white;background-color:#292929;margin-right:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('perso',$carmodel[$i]->id)}}">PEDIDO PERSONALIZADO</a>
+                            <a class="btn rounded-pill" style="color:#292929;background-color:white;margin-left:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('info',$carmodel[$i]->id)}}">INFORMACIÓN</a>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="opacity:0.85;margin-top:20px;">
+                            <p style="color:white;font-size:16px;">Conozca su {{ __($carmodel[$i]->name) }}</p>
+                        </div>
+                    </div>
+                @else
+                    <div class="d-flex flex-column" style="height:100vh;width:100vw;background:url({{('storage/'.$image[$i])}}) no-repeat;background-size:cover;position:relative;">
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:20vh;">
+                            <span class="d-flex flex-row justify-content-center h1" id="titulomodelo">{{ __($carmodel[$i]->name) }}</span>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:52vh;width:50%;margin-left:25%;margin-right:25%;opacity:0.85;">
+                            <a class="btn rounded-pill" style="color:white;background-color:#292929;margin-right:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('perso',$carmodel[$i]->id)}}">PEDIDO PERSONALIZADO</a>
+                            <a class="btn rounded-pill" style="color:#292929;background-color:white;margin-left:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('info',$carmodel[$i]->id)}}">INFORMACIÓN</a>
+                        </div>
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="opacity:0.85;margin-top:20px;">
+                            <p style="color:white;font-size:16px;">Conozca su {{ __($carmodel[$i]->name) }}</p>
+                        </div>
+                    </div>
+                @endif
+                @endfor
             @else
                 {{ __('No hay modelos actualmente') }}
             @endif
         </div>
-    </div>
 </div>
 @endsection

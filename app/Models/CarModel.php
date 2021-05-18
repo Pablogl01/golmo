@@ -14,5 +14,16 @@ class CarModel extends Model
         'price',
         'gama_id',
         'description',
+        'autonomia',
+        'aceleracion',
+        'velocidad_maxima',
+        'caballos',
+        'coeficiente',
+        'tren_motriz',
+        'llantas',
+        'capacidad',
+        'maletero',
+        'peso',
+        'description2'
     ];
 }

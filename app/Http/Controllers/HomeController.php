@@ -8,6 +8,7 @@ use App\Models\User_Model;
 use App\Models\CarModel;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Imagenes;
 
 class HomeController extends Controller
 {
@@ -29,7 +30,12 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $request->user()->authorizeRoles(['user', 'admin']);
-        $carmodel= CarModel::all();
-        return view('home',compact('carmodel'));
+        $carmodel = CarModel::all();
+        $image = [];
+        foreach($carmodel as $car){
+            $imagen = Imagenes::where("model_id",$car->id)->where("name","base")->get();
+            $image[] .= $imagen[0]->url;
+        }
+        return view('home',compact('carmodel','image'));
     }
 }
