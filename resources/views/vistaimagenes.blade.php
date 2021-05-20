@@ -3,7 +3,7 @@
 @section('content')
 <div>
     <div class="row justify-content-center ">
-        <form action="{{route('nuevaimagen')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('nuevaimagen',$gamaid)}}" method="POST" enctype="multipart/form-data">
             @csrf
             <label for="nombre" class="col-md-4 col-form-label text-md-left">Nombre</label>
             <input type="text" name="nombre" value="" class="form form-control" required>

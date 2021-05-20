@@ -8,6 +8,7 @@ use App\Models\Gama;
 use App\Http\Controllers\ImagenesController;
 use App\Models\Variante;
 use App\Models\Imagenes;
+use Illuminate\Support\Facades\DB;
 
 class CarModelController extends Controller
 {
@@ -25,7 +26,12 @@ class CarModelController extends Controller
 
     public function gestionmodelos(){
         $carmodel= CarModel::all();
-        return view('gestionmodelos',compact('carmodel'));
+        $image = [];
+        foreach($carmodel as $car){
+            $imagen = Imagenes::where("model_id",$car->id)->where("name","base")->get();
+            $image[] .= $imagen[0]->url;
+        }
+        return view('gestionmodelos',compact('carmodel','image'));
     }
 
     public function subirmodelo(){
@@ -53,16 +59,18 @@ class CarModelController extends Controller
 
 
         ]);
+        $gamaid = $gamaid[0]->id;
         $modelo = CarModel::all()->last();
         $modelo_id = $modelo->id;
-        $colores = Variante::where('type','Color')->where('gama_id',$gamaid[0]->id)->get();
-        $llantas = Variante::where('type','Llanta')->where('gama_id',$gamaid[0]->id)->get();
-        return view('vistaimagenes',compact('modelo','modelo_id','colores','llantas'));
+        $colores = Variante::where('type','Color')->where('gama_id',$gamaid)->get();
+        $llantas = Variante::where('type','Llanta')->where('gama_id',$gamaid)->get();
+        return view('vistaimagenes',compact('modelo','modelo_id','colores','llantas','gamaid'));
     }
 
     public function editarmodelo($id){
         $carmodel= CarModel::where("id",$id)->get();
-        return view('añadirmodelo',compact('carmodel'));
+        $imagenes = Imagenes::where("model_id",$id)->get();
+        return view('editarmodelo',compact('carmodel','imagenes'));
     }
 
     public function borrarmodelo($id){
@@ -74,6 +82,26 @@ class CarModelController extends Controller
         $imagenes->delete();
         $carmodel= CarModel::where("id",$id);
         $carmodel->delete();
+        return $this->gestionmodelos();
+    }
+
+    public function updatemodelinfo(Request $request, $model){
+        $model = CarModel::find($model);
+        $model->update(['name'=>$request->nombre,
+            'price'=>$request->precio,
+            'description'=>$request->description,
+            'autonomia'=>$request->autonomia,
+            'aceleracion'=>$request->aceleracion,
+            'velocidad_maxima'=>$request->velocidad_maxima,
+            'caballos'=>$request->caballos,
+            'coeficiente'=>$request->coeficiente,
+            'tren_motriz'=>$request->tren_motriz,
+            'llantas'=>$request->llantas,
+            'capacidad'=>$request->capacidad,
+            'maletero'=>$request->maletero,
+            'peso'=>$request->peso,
+            'description2'=>$request->description2
+        ]);
         return $this->gestionmodelos();
     }
 

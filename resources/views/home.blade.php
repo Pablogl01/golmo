@@ -10,9 +10,9 @@
                         <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:20vh;">
                             <span class="d-flex flex-row justify-content-center h1" id="titulomodelo">{{ __($carmodel[$i]->name) }}</span>
                         </div>
-                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:50vh;width:50%;margin-left:25%;margin-right:25%;opacity:0.85;">
-                            <a class="btn rounded-pill" style="color:white;background-color:#292929;margin-right:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('perso',$carmodel[$i]->id)}}">PEDIDO PERSONALIZADO</a>
-                            <a class="btn rounded-pill" style="color:#292929;background-color:white;margin-left:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('info',$carmodel[$i]->id)}}">INFORMACIÓN</a>
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:50vh;width:50%;margin-left:25%;margin-right:25%;">
+                            <a class="btn rounded-pill botonmodeloshome" style="color:white;background:rgba(41, 41, 41, 0.9);margin-right:2.5%;padding-top:10px;padding-bottom:10px;width:275px;opacity:0.85;" href="{{route('perso',$carmodel[$i]->id)}}">PEDIDO PERSONALIZADO</a>
+                            <a class="btn rounded-pill botonmodeloshome" style="color:#292929;background:rgba(255, 255, 255, 0.85);margin-left:2.5%;padding-top:10px;padding-bottom:10px;width:275px;opacity:0.85;" href="{{route('info',$carmodel[$i]->id)}}">INFORMACIÓN</a>
                         </div>
                         <div class="d-flex flex-row justify-content-center align-items-center" style="opacity:0.85;margin-top:20px;">
                             <p style="color:white;font-size:16px;">Conozca su {{ __($carmodel[$i]->name) }}</p>
@@ -23,9 +23,9 @@
                         <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:20vh;">
                             <span class="d-flex flex-row justify-content-center h1" id="titulomodelo">{{ __($carmodel[$i]->name) }}</span>
                         </div>
-                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:55vh;width:50%;margin-left:25%;margin-right:25%;opacity:0.85;">
-                            <a class="btn rounded-pill" style="color:white;background-color:#292929;margin-right:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('perso',$carmodel[$i]->id)}}">PEDIDO PERSONALIZADO</a>
-                            <a class="btn rounded-pill" style="color:#292929;background-color:white;margin-left:2.5%;padding-top:10px;padding-bottom:10px;width:275px;" href="{{route('info',$carmodel[$i]->id)}}">INFORMACIÓN</a>
+                        <div class="d-flex flex-row justify-content-center align-items-center" style="margin-top:55vh;width:50%;margin-left:25%;margin-right:25%;">
+                            <a class="btn rounded-pill botonmodeloshome" style="color:white;background-color:#292929;margin-right:2.5%;padding-top:10px;padding-bottom:10px;width:275px;opacity:0.85;" href="{{route('perso',$carmodel[$i]->id)}}">PEDIDO PERSONALIZADO</a>
+                            <a class="btn rounded-pill botonmodeloshome" style="color:#292929;background-color:white;margin-left:2.5%;padding-top:10px;padding-bottom:10px;width:275px;opacity:0.85;" href="{{route('info',$carmodel[$i]->id)}}">INFORMACIÓN</a>
                         </div>
                         <div class="d-flex flex-row justify-content-center align-items-center" style="opacity:0.85;margin-top:20px;">
                             <p style="color:white;font-size:16px;">Conozca su {{ __($carmodel[$i]->name) }}</p>

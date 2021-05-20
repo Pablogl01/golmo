@@ -30,7 +30,7 @@ class PersonalizationController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @returnminate\Http\Response
      */
     public function create()
     {

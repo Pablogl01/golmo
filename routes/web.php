@@ -24,7 +24,7 @@ Route::resource('user','App\Http\Controllers\UserController');
 Route::resource('home','App\Http\Controllers\HomeController');
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::put('post/{id}', function ($id) {
@@ -33,7 +33,6 @@ Route::put('post/{id}', function ($id) {
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/login2', [App\Http\Controllers\UserController::class, 'login2'])->name('login2');
 Route::get('/info/{id}', [App\Http\Controllers\CarModelController::class, 'index'])->name('info')->middleware('auth');
 Route::get('/perso/{id}', [App\Http\Controllers\PersonalizationController::class, 'index'])->name('perso')->middleware('auth');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile')->middleware('auth');
@@ -47,10 +46,16 @@ Route::get('/editarmodelo/{id}', [App\Http\Controllers\CarModelController::class
 Route::get('/borrarmodelo/{id}', [App\Http\Controllers\CarModelController::class, 'borrarmodelo'])->name('borrarmodelo')->middleware('auth', 'role:admin');
 Route::post('/nuevomodelo', [App\Http\Controllers\CarModelController::class, 'nuevomodelo'])->name('nuevomodelo')->middleware('auth', 'role:admin');
 Route::post('/nuevavariante', [App\Http\Controllers\VarianteController::class, 'nuevavariante'])->name('nuevavariante')->middleware('auth', 'role:admin');
-Route::post('/nuevaimagen', [App\Http\Controllers\ImagenesController::class, 'nuevaimagen'])->name('nuevaimagen')->middleware('auth', 'role:admin');
+Route::post('/nuevaimagen/{gamaid}', [App\Http\Controllers\ImagenesController::class, 'nuevaimagen'])->name('nuevaimagen')->middleware('auth', 'role:admin');
 Route::post('/previsualizar/{id}', [App\Http\Controllers\UserModelController::class, 'previsualizar'])->name('previsualizar')->middleware('auth');
-Route::post('/guardarperso', [App\Http\Controllers\UserModelController::class, 'guardarperso'])->name('guardarperso')->middleware('auth');
+Route::post('/guardarperso/{model_id}', [App\Http\Controllers\UserModelController::class, 'guardarperso'])->name('guardarperso')->middleware('auth');
 Route::get('/eliminarvariante/{id}', [App\Http\Controllers\VarianteController::class, 'eliminarvariante'])->name('eliminarvariante')->middleware('auth','role:admin');
+Route::get('/edituser/{id}', [App\Http\Controllers\UserController::class, 'edituser'])->name('edituser')->middleware('auth','role:admin');
+Route::get('/borraruser/{id}', [App\Http\Controllers\UserController::class, 'borraruser'])->name('borraruser')->middleware('auth','role:admin');
+Route::post('/saveedituser/{id}', [App\Http\Controllers\UserController::class, 'saveedituser'])->name('saveedituser')->middleware('auth','role:admin');
+Route::get('/editarimagen/{id}', [App\Http\Controllers\ImagenesController::class, 'editarimagen'])->name('editarimagen')->middleware('auth','role:admin');
+Route::post('/updateimagen/{imagen}', [App\Http\Controllers\ImagenesController::class, 'updateimagen'])->name('updateimagen')->middleware('auth','role:admin');
+Route::post('/updatemodelinfo/{model}', [App\Http\Controllers\CarModelController::class, 'updatemodelinfo'])->name('updatemodelinfo')->middleware('auth','role:admin');
 
 
 

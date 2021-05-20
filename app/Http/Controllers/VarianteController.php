@@ -59,11 +59,11 @@ class VarianteController extends Controller
                 
             }
             $imagenes->delete();
-        }else{
-            
+        }  
+            $path = $variante->get()[0]->image;
+            unlink(public_path("storage/".$path));
             $variante->delete();
             return $this->gestionvariantes();
-        }
     }
     /**
      * Show the form for creating a new resource.

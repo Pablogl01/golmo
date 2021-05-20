@@ -45,33 +45,4 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid" style="position:absolute;z-index;3000;background-color:black;opacity:0.5;height:100vh;width:100vw;">
-                <div style="height:min-height:70vh;margin-top:15vh;margin-bottom:15vh;width:80vw;margin-left:10vw;margin-right:10vw;">
-                    <p class="h3 text-white" style="font-weight: bold;">Gestión de usuarios</p>
-                    <p class="text-white">Aquí puede gestionar todos los usuarios de nuestro sistema. </p>
-                    <div style="background-color:white;min-height:calc(70vh - 65px - 53px);padding-top:5vh;padding-bottom:5vh;padding-left:3vw;padding-right:3vw;margin-bottom:5vh;width:100%;">
-                        <div class="d-flex flex-row" style="width:100%;border-bottom:1px solid #D7D1D1;">
-                            <p class="h5" style="color:#969696;text-align:center;width:27.5%;">Correo electrónico</p>
-                            <p class="h5" style="color:#969696;text-align:center;width:27.5%;">Nombre de usuario</p>
-                            <p class="h5" style="color:#969696;text-align:center;width:10%;">Role</p>
-                            <p class="h5" style="color:#969696;text-align:center;width:35%;">Acciones</p>
-                        </div>
-                        @foreach ($users as $user)
-                        <div class="d-flex flex-row" style="width:100%;margin-top:35px;">
-                            <p class="h6 subdivemailgestionusers" style="color:#2F2F2F;text-align:center;width:27.5%;font-weight:500;">{{ __($user->email) }}</p>
-                            <p class="h6" style="color:#2F2F2F;text-align:center;width:27.5%;">{{ __($user->name) }}</p>
-                            <p class="h6" style="color:#2F2F2F;text-align:center;width:10%;">{{ __($user->role_id) }}</p>
-                            <div class="divcontenedorgestionusers" style="display:flex;flex-direction:row;color:#2F2F2F;text-align:center;width:35%;">
-                            @if($user->email == Auth::user()->email)
-                                <a href="" class="h6 subdivcontenedorgestionusers" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:20%;">Editar</a>
-                            @else
-                                <a href="{{route('edituser',$user->id)}}" class="h6 subdivcontenedorgestionusers" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:20%;">Editar</a>
-                            @endif
-                            <a href="{{route('borraruser',$user->id)}}" class="h6 subdivcontenedorgestionusers" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:10%;margin-right:20%;">Borrar</a>
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-    </div>
 @endsection

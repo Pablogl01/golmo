@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User_Model;
 use App\Models\User;
 use App\Models\Role;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -48,6 +50,52 @@ class UserController extends Controller
     public function gestionusers(){
         $users= User::all();
         return view('gestionusers',compact('users'));
+    }
+
+    public function borraruser($id){
+        $usermodel = User_Model::where("user_id",$id)->get();
+        if(count($usermodel)!=0){
+            foreach($usermodel as $per){
+                $per->delete();
+            }
+        }
+        $role_user = DB::table("role_user")->where("user_id",$id);
+        $role_user->delete();
+        $user = User::where("id",$id);
+        $user->delete();
+        return $this->gestionusers();
+    }
+
+    public function edituser($id){
+        $user = User::where("id",$id)->get();
+        $roles = Role::all();
+        return view('edituser',compact('user','roles'));
+    }
+
+    public function saveedituser(Request $request,$id){
+        $nombre = $request->nombre;
+        $email = $request->correo;
+        $pass = $request->contraseña;
+        $rol = $request->rol;
+        $user = User::find($id);
+        $role_user = DB::table("role_user")->where("user_id",$id);
+        if($pass==null){
+            $user->update(['name'=>$nombre,
+                'email'=>$email,
+                'role_id'=>$rol
+            ]);
+            $role_user->update(['role_id'=>$rol]);
+        }
+        else{
+            $user->update(['name'=>$nombre,
+                'email'=>$email,
+                'password'=>Hash::make($pass),
+                'role_id'=>$rol
+            ]);
+            $role_user->update(['role_id'=>$rol]);
+        }
+        return $this->gestionusers();
+        
     }
 
     /**
