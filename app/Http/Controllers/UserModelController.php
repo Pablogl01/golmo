@@ -43,5 +43,22 @@ class UserModelController extends Controller
         'acabados'=>$request->acabado,
         'total_price'=>$request->precio,
         ]);
+        $user = new UserController();
+        return $user->profile();
+    }
+
+    public function miscoches(){
+        
+        $misc = User_Model::where("user_id",Auth::user()->id)->get();
+        $names = [];
+        $imagens = [];
+        foreach($misc as $save){
+            $n = CarModel::where('id',$save->model_id)->get();
+            array_push($names,$n[0]->name);
+            $i = Imagenes::where('model_id',$save->model_id)->get("url");
+            array_push($imagens, $i[0]->url);
+        }
+        return view('miscoches',compact('misc','names','imagens'));
+
     }
 }

@@ -52,10 +52,17 @@ Route::post('/guardarperso/{model_id}', [App\Http\Controllers\UserModelControlle
 Route::get('/eliminarvariante/{id}', [App\Http\Controllers\VarianteController::class, 'eliminarvariante'])->name('eliminarvariante')->middleware('auth','role:admin');
 Route::get('/edituser/{id}', [App\Http\Controllers\UserController::class, 'edituser'])->name('edituser')->middleware('auth','role:admin');
 Route::get('/borraruser/{id}', [App\Http\Controllers\UserController::class, 'borraruser'])->name('borraruser')->middleware('auth','role:admin');
-Route::post('/saveedituser/{id}', [App\Http\Controllers\UserController::class, 'saveedituser'])->name('saveedituser')->middleware('auth','role:admin');
+Route::post('/saveedituser', [App\Http\Controllers\UserController::class, 'saveedituser'])->name('saveedituser')->middleware('auth','role:admin');
 Route::get('/editarimagen/{id}', [App\Http\Controllers\ImagenesController::class, 'editarimagen'])->name('editarimagen')->middleware('auth','role:admin');
 Route::post('/updateimagen/{imagen}', [App\Http\Controllers\ImagenesController::class, 'updateimagen'])->name('updateimagen')->middleware('auth','role:admin');
 Route::post('/updatemodelinfo/{model}', [App\Http\Controllers\CarModelController::class, 'updatemodelinfo'])->name('updatemodelinfo')->middleware('auth','role:admin');
+Route::get('/seguridad', [App\Http\Controllers\UserController::class, 'seguridad'])->name('seguridad')->middleware('auth');
+Route::get('/miscoches', [App\Http\Controllers\UserModelController::class, 'miscoches'])->name('miscoches')->middleware('auth');
+Route::get('/misofertas', [App\Http\Controllers\OfertasController::class, 'misofertas'])->name('misofertas')->middleware('auth');
+Route::get('/privacidad', [App\Http\Controllers\UserController::class, 'privacidad'])->name('privacidad')->middleware('auth');
+Route::get('/realizaroferta', [App\Http\Controllers\OfertasController::class, 'realizaroferta'])->name('realizaroferta')->middleware('auth');
+Route::post('/nuevaoferta', [App\Http\Controllers\OfertasController::class, 'nuevaoferta'])->name('nuevaoferta')->middleware('auth');
+Route::get('/veroferta/{oferta}', [App\Http\Controllers\OfertasController::class, 'veroferta'])->name('veroferta')->middleware('auth');
 
 
 

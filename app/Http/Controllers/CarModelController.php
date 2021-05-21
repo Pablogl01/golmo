@@ -8,7 +8,9 @@ use App\Models\Gama;
 use App\Http\Controllers\ImagenesController;
 use App\Models\Variante;
 use App\Models\Imagenes;
+use App\Models\Log;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class CarModelController extends Controller
 {
@@ -59,8 +61,13 @@ class CarModelController extends Controller
 
 
         ]);
-        $gamaid = $gamaid[0]->id;
         $modelo = CarModel::all()->last();
+        Log::create([
+            'user_id'=>Auth::user()->id,
+            'action'=>"create",
+            'model_id'=>$modelo->id
+        ]);
+        $gamaid = $gamaid[0]->id;
         $modelo_id = $modelo->id;
         $colores = Variante::where('type','Color')->where('gama_id',$gamaid)->get();
         $llantas = Variante::where('type','Llanta')->where('gama_id',$gamaid)->get();
