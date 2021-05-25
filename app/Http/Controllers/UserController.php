@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User_Model;
 use App\Models\User;
 use App\Models\Role;
+use App\Models\Ofertas;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -97,5 +98,30 @@ class UserController extends Controller
         }
         return $this->gestionusers();
         
+    }
+
+    public function seguridad(){
+        $user = Auth::user();
+        return view('seguridad',compact('user'));
+    }
+
+    public function borrarmicuenta(){
+        $user = Auth::user();
+        $usermodel = User_Model::where("user_id",$user->id)->get();
+        $ofertas = Ofertas::where('user_id',$user->id)->get();
+        if(count($usermodel)!=0){
+            foreach($usermodel as $per){
+                $per->delete();
+            }
+        }
+        if(count($ofertas)!=0){
+            foreach($ofertas as $oferta){
+                $oferta->delete();
+            }
+        }
+        $role_user = DB::table("role_user")->where("user_id",$user->id);
+        $role_user->delete();
+        $user->delete();
+        return view('auth/login');
     }
 }

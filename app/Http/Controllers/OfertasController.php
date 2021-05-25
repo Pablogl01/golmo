@@ -17,7 +17,7 @@ class OfertasController extends Controller
     }
 
     public function misofertas(){
-        $ofertas = Ofertas::all();
+        $ofertas = Ofertas::where('user_id',Auth::user()->id)->get();
         return view('misofertas',compact('ofertas'));
     }
 

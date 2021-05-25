@@ -63,6 +63,7 @@ Route::get('/privacidad', [App\Http\Controllers\UserController::class, 'privacid
 Route::get('/realizaroferta', [App\Http\Controllers\OfertasController::class, 'realizaroferta'])->name('realizaroferta')->middleware('auth');
 Route::post('/nuevaoferta', [App\Http\Controllers\OfertasController::class, 'nuevaoferta'])->name('nuevaoferta')->middleware('auth');
 Route::get('/veroferta/{oferta}', [App\Http\Controllers\OfertasController::class, 'veroferta'])->name('veroferta')->middleware('auth');
+Route::get('/borrarmicuenta', [App\Http\Controllers\UserController::class, 'borrarmicuenta'])->name('borrarmicuenta')->middleware('auth');
 
 
 

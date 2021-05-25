@@ -107,10 +107,10 @@
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
 </body>
 </html>
