@@ -72,28 +72,32 @@
                 <div style="position:absolute;top:0;left:0;z-index:3000;height:70vh;margin-top:15vh;margin-bottom:15vh;width:80vw;margin-left:10vw;margin-right:10vw;opacity:1 !important;background-color:#FEFEFE;">
                     <form action="{{route('saveedituser')}}" method="POST">
                         @csrf
-                        <input name="id" id="inputid" type="hidden" value="">
-                        <img style="transform:translateX(70vw);width:5vw;height:auto;margin-right:2vw;margin-top:1vh;"src="http://drive.google.com/uc?export=view&id=1UpyHgQ9jYR4aaxlIfSoyWupH-JjGHJ8s" alt="logogolmo">
+                        <div style="width:100%;display:flex;flex-direction:row;">
+                            <input name="id" id="inputid" type="hidden" value="">
+                            <div style="margin-top:2vh;margin-bottom:2vh;margin-left:85%;width:15%;display:flex;flex-direction:row;justify-content:center;align-items:center;">
+                                <img id="imagenlogopopup" style="width:60%;height:auto;margin-right:2.5%;" src="http://drive.google.com/uc?export=view&id=1UpyHgQ9jYR4aaxlIfSoyWupH-JjGHJ8s" alt="logogolmo">
+                            </div>
+                        </div>
                         <div style="display:flex;flex-direction:column;width:80%;margin-left:10%;margin-right:10%;">
-                            <p class="h4" style="font-weight:bold;width:100%;">Datos personales</p>
+                            <p class="h4" style="margin-left:5%;font-weight:bold;width:95%;">Datos personales</p>
                             <div style="width:100%;display:flex;flex-direction:row;justify-content:center;align-items:center;">
                                 <div style="display:flex;flex-direction:column;width:40%;margin-left:5%;margin-right:5%;">
-                                    <label for="nombre" style="font-size:15px;font-weight:bold;" class="col-md-4 col-form-label text-md-left">Nombre</label>
-                                    <input id="inputnombre" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;" type="text" name="nombre" value="" class="form form-control" required>
+                                    <label for="nombre" style="padding-left:0; font-size:15px;font-weight:bold;" class="col-md-4 col-form-label text-md-left">Nombre</label>
+                                    <input id="inputnombre" style="padding:0 !important; width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;" type="text" name="nombre" value="" class="form form-control" required>
                                 </div>
                                 <div style="display:flex;flex-direction:column;width:40%;margin-left:5%;margin-right:5%;">
-                                    <label for="correo" style="font-size:15px;font-weight:bold;" class="col-md-4 col-form-label text-md-left">Correo</label>
-                                    <input id="inputcorreo" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;" type="text" name="correo" value="" class="form form-control" required>
+                                    <label for="correo" style="padding-left:0; font-size:15px;font-weight:bold;" class="col-md-4 col-form-label text-md-left">Correo</label>
+                                    <input id="inputcorreo" style="padding:0 !important; width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;" type="text" name="correo" value="" class="form form-control" required>
                                 </div>
                             </div>
                             <div style="width:100%;display:flex;flex-direction:row;justify-content:center;align-items:center;"> 
                                 <div style="display:flex;flex-direction:column;width:40%;margin-left:5%;margin-right:5%;">
-                                    <label for="contraseña" style="font-size:15px;font-weight:bold;" class="col-md-4 col-form-label text-md-left">Password</label>
-                                    <input type="password" style="width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;" name="contraseña" value="" class="form form-control">
+                                    <label for="contraseña" style="padding-left:0;font-size:15px;font-weight:bold;" class="col-md-4 col-form-label text-md-left">Password</label>
+                                    <input type="password" style="padding:0 !important; width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;" name="contraseña" value="" class="form form-control">
                                 </div>
                                 <div style="display:flex;flex-direction:column;width:40%;margin-left:5%;margin-right:5%;">
-                                    <label for="rol" style="font-size:15px;font-weight:bold;"  class="col-md-4 col-form-label text-md-left">Role</label>
-                                    <select name="rol" style="height: calc(1.6em + 0.75rem + 2px); padding: 0.375rem 0.75rem; width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
+                                    <label for="rol" style="padding-left:0; font-size:15px;font-weight:bold;"  class="col-md-4 col-form-label text-md-left">Role</label>
+                                    <select name="rol" style="height: calc(1.6em + 0.75rem + 2px);width:100%; margin-bottom:15px; border-right:none; border-top:none; border-left:none; border-bottom:1px solid #C6C6C6;background-color:transparent; outline:none; color:#4E4E4E; caret-color:#939393;font-size:18px;border-radius:0 !important;">
                                         @foreach($roles as $rol)
                                             <option value="{{$rol->id}}">{{$rol->role}}</option>
                                         @endforeach
@@ -104,10 +108,10 @@
                             <div style="margin-top:5vh;display:flex;flex-direction:row;justify-content:center;align-items:center;">
                                 <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:40%;margin-left:5%;margin-right:5%;">
                                     <!--<input type="submit" class="btn btn-primary" value="Actualizar">-->
-                                    <button type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:2px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Actualizar</button>
+                                    <button type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Actualizar</button>
                                 </div>
                                 <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:40%;margin-right:5%;margin-left:5%;">
-                                    <button type="submit" id="bt2" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:2px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Cancelar</button>
+                                    <button type="submit" id="bt2" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Cancelar</button>
                                 </div>
                             </div>
                         </div>

@@ -34,8 +34,8 @@
                         @endfor
                     </div>
                 </div>
+                <a style="width:100vw;background-color:#191F22;color:white;padding-left:10%;padding-bottom:2vh;text-decoration:none;" href="{{route('subirmodelo')}}">Añadir nuevo modelo</a>
             </div>
-            <a style="width:100vw;background-color:#191F22;color:white;padding-left:10%;padding-bottom:2vh;text-decoration:none;" href="{{route('subirmodelo')}}">Añadir nuevo modelo</a>
         </div>
     </div>
 @endsection

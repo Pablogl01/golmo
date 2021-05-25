@@ -18,5 +18,6 @@ class User_Model extends Model
         'audio',
         'acabados',
         'total_price',
+        'status',
     ];
 }

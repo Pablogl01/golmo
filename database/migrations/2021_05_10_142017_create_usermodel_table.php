@@ -23,6 +23,7 @@ class CreateUserModelTable extends Migration
             $table->unsignedBigInteger('audio');
             $table->unsignedBigInteger('acabados');
             $table->unsignedBigInteger('total_price');
+            $table->string('status',50);
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('model_id')->references('id')->on('car_models');
             $table->foreign('llanta')->references('id')->on('variantes');

@@ -5,9 +5,9 @@
         <div class="d-flex flex-column" style="width:100%">
             <!-- Nav Cliente -->     
             <nav class="navbar navbar-expand-lg navbar-light bg-light navapp" style="padding-bottom:0;padding-left:0;padding-right:0;margin-bottom:0;margin-left:10%;margin-right:10%;">
-            <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #8A8A8A;" href="{{route('profile')}}">Datos personales</a>
+                <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('profile')}}">Datos personales</a>
                 <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('seguridad')}}">Inicio de sesión y seguridad</a>
-                <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('miscoches')}}">Mis coches</a>
+                <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #8A8A8A;" href="{{route('miscoches')}}">Mis coches</a>
                 <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('misofertas')}}">Mis ofertas</a>
                 <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('privacidad')}}">Privacidad y cookies</a>
             </nav>
@@ -26,9 +26,14 @@
                         </div>
                         @if(count($misc) != 0)
                             @for($i = 0;$i < count($misc); $i++)
-                            <p>{{$names[$i]}}</p>
-                            </br>
-                            <img src="{{('storage/'.$imagens[$i])}}" alt="imagenmodelo" style="width:100%;height:100%;">
+                                <p>{{$names[$i]}}</p>
+                                </br>
+                                <img src="{{('storage/'.$imagens[$i])}}" alt="imagenmodelo" style="width:50%;height:50%;">
+                                @if($misc[$i]->status == "guardado")
+                                    <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('payWithPayPal',$misc[$i])}}">Pagar</a>
+                                @else
+                                    <p>Comprado</p>
+                                @endif
                             @endfor
                         @else
                             <p>todavia no hay coches guardados</p>

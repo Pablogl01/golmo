@@ -10114,6 +10114,10 @@ h3 {
 }
 
 @media (max-width: 768px) {
+  #imagenlogopopup{
+    width:100% !important;
+    margin-right:50% !important;
+  }
   .subdivemailgestionusers{
     overflow-x:scroll !important;
   }

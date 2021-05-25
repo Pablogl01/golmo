@@ -42,6 +42,7 @@ class UserModelController extends Controller
         'audio'=>$request->audio,
         'acabados'=>$request->acabado,
         'total_price'=>$request->precio,
+        'status'=>"guardado",
         ]);
         $user = new UserController();
         return $user->profile();

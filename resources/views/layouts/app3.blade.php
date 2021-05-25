@@ -30,7 +30,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">ENTREGA INMEDIATA</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">INTERCAMBIO</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">SOBRE NOSOTROS</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">SOLICITAR OFERTA</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('realizaroferta')}}">SOLICITAR OFERTA</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">PERSONALIZA TU VEHÍCULO</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">FINANCIACIÓN Y GARANTÍAS</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">EVENTOS</a>
@@ -90,7 +90,7 @@
                             </a>
                         </div>
                         <div class="d-flex flex-row justify-content-center align-items-center" style="width:40%;">
-                            <a id="menu-toggle" style="position:absolute;right:4vw;" href="#" role="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
+                            <a id="menu-toggle" style="position:absolute;right:4vw;" role="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false">
                                 <svg height="15pt" width="15pt" viewBox="0 -53 384 384" xmlns="http://www.w3.org/2000/svg"><path d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/><path d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"/></svg>
                             </a>
                         </div>
@@ -104,12 +104,13 @@
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <!--<script src="js/scripts.js"></script>-->
         <script>
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+                console.log("hola");
+            });
     </script>
 </body>
 </html>

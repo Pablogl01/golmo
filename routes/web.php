@@ -66,4 +66,7 @@ Route::get('/veroferta/{oferta}', [App\Http\Controllers\OfertasController::class
 Route::get('/borrarmicuenta', [App\Http\Controllers\UserController::class, 'borrarmicuenta'])->name('borrarmicuenta')->middleware('auth');
 
 
+Route::get('/payWithPayPal/{perso}', [App\Http\Controllers\PaymentController::class, 'payWithPayPal'])->name('payWithPayPal')->middleware('auth');
+Route::get('/payPalStatus', [App\Http\Controllers\PaymentController::class, 'payPalStatus'])->name('payPalStatus')->middleware('auth');
+
 
