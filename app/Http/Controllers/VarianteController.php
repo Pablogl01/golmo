@@ -32,7 +32,6 @@ class VarianteController extends Controller
 
     public function nuevavariante(Request $request){
         $path=$request->file('imagen')->store('imagenes','public');
-        
         Variante::create(['type'=>$request->tipo,
         'name'=>$request->nombre,
         'image'=>$path,
@@ -64,5 +63,20 @@ class VarianteController extends Controller
             unlink(public_path("storage/".$path));
             $variante->delete();
             return $this->gestionvariantes();
+    }
+
+    public function editarvariante($id){
+        $variante = Variante::find($id);
+        return view('editvar',compact('variante'));
+    }
+
+    public function saveeditvariante(Request $request,$id){
+        $variante = Variante::find($id);
+        $path=$request->file('imagen')->store('imagenes','public');
+        $variante->update(['name'=>$request->nombre,
+            'image'=>$path,
+            'type'=>$request->tipo
+        ]);
+        return $this->gestionvariantes();
     }
 }

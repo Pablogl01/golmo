@@ -17,7 +17,8 @@
             $("#inputcorreo").attr("value",(p2[1]));
             $("#inputnombre").attr("value",(p2[2]));
 
-            $("#divcontenedorimportante").css({"display":"flex"});
+            var altura = $(document).height();
+            $("#divcontenedorimportante").css({"display":"flex","height":altura+"px"});
 
         })
         $("#bt2").click(function(){
@@ -57,7 +58,7 @@
                             <p class="h6 {{$i}}" style="color:#2F2F2F;text-align:center;width:10%;">{{ __($users[$i]->role_id) }}</p>
                             <div class="divcontenedorgestionusers" style="display:flex;flex-direction:row;color:#2F2F2F;text-align:center;width:35%;">
                             @if($users[$i]->email == Auth::user()->email)
-                                <a class="h6 subdivcontenedorgestionusers" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:20%;">Editar</a>
+                                <a class="h6 subdivcontenedorgestionusers" style="text-decoration:none;color:#bfbfbf;text-align:center;width:25%;margin-left:20%;">Editar</a>
                             @else
                                 <a class="{{$i}} bt1 h6 subdivcontenedorgestionusers" style="cursor:pointer;text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:20%;">Editar</a>
                             @endif
@@ -111,7 +112,7 @@
                                     <button type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Actualizar</button>
                                 </div>
                                 <div style="display:flex;flex-direction:row;justify-content:center;align-items:center;width:40%;margin-right:5%;margin-left:5%;">
-                                    <button type="submit" id="bt2" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Cancelar</button>
+                                    <input type="button" id="bt2" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;" value="Cancelar">
                                 </div>
                             </div>
                         </div>

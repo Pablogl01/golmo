@@ -30,7 +30,7 @@
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">INTERCAMBIO</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('nosotros')}}">SOBRE NOSOTROS</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('realizaroferta')}}">SOLICITAR OFERTA</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('home')}}">PERSONALIZA TU VEHÍCULO</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">PERSONALIZA TU VEHÍCULO</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">SOPORTE</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('logout')}}"
                         onclick="event.preventDefault();
@@ -49,7 +49,7 @@
             </div>
             <!-- Page Content-->
             <div id="page-content-wrapper">
-                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="height:65px;">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom" style="z-index:10000;height:65px;position:fixed;width:100%;">
                     <div class="d-flex flex-row justify-content-center align-items-center" style="width:100%;">
                         <div class="d-flex flex-row justify-content-center align-items-center" style="width:60%;">
                             <a style="position:absolute;left:2vw; margin-left:15px" class="navbar-brand" href="{{ url('/home') }}">

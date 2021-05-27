@@ -10196,4 +10196,78 @@ h3 {
   #wrapper.toggled #sidebar-wrapper {
     margin-right: -15rem;
   }
+
+  #privacidad-f{
+    display:flex;
+    flex-direction: column !important;
+    width:100%;
+  }
+
+  #privacidad-f1{
+    width:100% !important;
+  }
+
+  #privacidad-f2{
+    width:100% !important;
+  }
+
+  .divofertas{
+    display:flex;
+    flex-direction:column !important;
+    width:100% !important;
+    border-bottom: 1px solid #D7D1D1;
+    justify-content:flex-start !important;
+  }
+
+  .divvermas{
+    margin-left:70% !important;
+  }
+  
+  .divofertas2{
+    margin-left:2.5%;
+  }
+
+  .mimodel{
+    width:100% !important;
+    margin-left:0 !important;
+    margin-bottom:70px !important;
+  }
+
+  .divcontenedorofertas{
+    width:100% !important;
+  }
+
+  .nosotros{
+    display:flex;
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+
+  .nosotros img{
+    width: 100% !important;
+  }
+
+  .nosotros p{
+    width: 90% !important;
+  }
+
+  .n2{
+    display:flex;
+    flex-direction: column-reverse !important;
+  }
+
+  #logon{
+    visibility: hidden !important;
+    width: 0px !important;
+  }
+
+  .titn{
+    display:flex;
+    justify-content: center !important;
+  }
+
+  .renove{
+    width: 100% !important;
+  }
 }
+

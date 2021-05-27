@@ -56,7 +56,7 @@ class UserModelController extends Controller
         foreach($misc as $save){
             $n = CarModel::where('id',$save->model_id)->get();
             array_push($names,$n[0]->name);
-            $i = Imagenes::where('model_id',$save->model_id)->get("url");
+            $i = Imagenes::where('model_id',$save->model_id)->where('color',$save->color)->where('llanta',$save->llanta)->get("url");
             array_push($imagens, $i[0]->url);
         }
         return view('miscoches',compact('misc','names','imagens'));

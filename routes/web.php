@@ -32,7 +32,7 @@ Route::put('post/{id}', function ($id) {
 })->middleware('auth', 'role:admin');
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/info/{id}', [App\Http\Controllers\CarModelController::class, 'index'])->name('info')->middleware('auth');
 Route::get('/perso/{id}', [App\Http\Controllers\PersonalizationController::class, 'index'])->name('perso')->middleware('auth');
 Route::get('/profile', [App\Http\Controllers\UserController::class, 'profile'])->name('profile')->middleware('auth');
@@ -50,6 +50,7 @@ Route::post('/nuevaimagen/{gamaid}', [App\Http\Controllers\ImagenesController::c
 Route::post('/previsualizar/{id}', [App\Http\Controllers\UserModelController::class, 'previsualizar'])->name('previsualizar')->middleware('auth');
 Route::post('/guardarperso/{model_id}', [App\Http\Controllers\UserModelController::class, 'guardarperso'])->name('guardarperso')->middleware('auth');
 Route::get('/eliminarvariante/{id}', [App\Http\Controllers\VarianteController::class, 'eliminarvariante'])->name('eliminarvariante')->middleware('auth','role:admin');
+Route::get('/editarvariante/{id}', [App\Http\Controllers\VarianteController::class, 'editarvariante'])->name('editarvariante')->middleware('auth','role:admin');
 Route::get('/edituser/{id}', [App\Http\Controllers\UserController::class, 'edituser'])->name('edituser')->middleware('auth','role:admin');
 Route::get('/borraruser/{id}', [App\Http\Controllers\UserController::class, 'borraruser'])->name('borraruser')->middleware('auth','role:admin');
 Route::post('/saveedituser', [App\Http\Controllers\UserController::class, 'saveedituser'])->name('saveedituser')->middleware('auth','role:admin');
@@ -64,7 +65,13 @@ Route::get('/realizaroferta', [App\Http\Controllers\OfertasController::class, 'r
 Route::post('/nuevaoferta', [App\Http\Controllers\OfertasController::class, 'nuevaoferta'])->name('nuevaoferta')->middleware('auth');
 Route::get('/veroferta/{oferta}', [App\Http\Controllers\OfertasController::class, 'veroferta'])->name('veroferta')->middleware('auth');
 Route::get('/borrarmicuenta', [App\Http\Controllers\UserController::class, 'borrarmicuenta'])->name('borrarmicuenta')->middleware('auth');
-
+Route::get('/aceptaroferta/{oferta}', [App\Http\Controllers\OfertasController::class, 'aceptaroferta'])->name('aceptaroferta')->middleware('auth','role:admin');
+Route::get('/rechazaroferta/{oferta}', [App\Http\Controllers\OfertasController::class, 'rechazaroferta'])->name('rechazaroferta')->middleware('auth','role:admin');
+Route::post('/saveeditvariante/{id}', [App\Http\Controllers\VarianteController::class, 'saveeditvariante'])->name('saveeditvariante')->middleware('auth','role:admin');
+Route::get('/editarmiperfil', [App\Http\Controllers\UserController::class, 'editarmiperfil'])->name('editarmiperfil')->middleware('auth');
+Route::post('/saveeditmiperfil', [App\Http\Controllers\UserController::class, 'saveeditmiperfil'])->name('saveeditmiperfil')->middleware('auth');
+Route::get('/nosotros', [App\Http\Controllers\UserController::class, 'nosotros'])->name('nosotros')->middleware('auth');
+Route::get('/intercambio', [App\Http\Controllers\UserController::class, 'intercambio'])->name('intercambio')->middleware('auth');
 
 Route::get('/payWithPayPal/{perso}', [App\Http\Controllers\PaymentController::class, 'payWithPayPal'])->name('payWithPayPal')->middleware('auth');
 Route::get('/payPalStatus', [App\Http\Controllers\PaymentController::class, 'payPalStatus'])->name('payPalStatus')->middleware('auth');

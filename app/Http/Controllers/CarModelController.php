@@ -8,6 +8,8 @@ use App\Models\Gama;
 use App\Http\Controllers\ImagenesController;
 use App\Models\Variante;
 use App\Models\Imagenes;
+use App\Models\Ofertas;
+use App\Models\User_Model;
 use App\Models\Log;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +25,11 @@ class CarModelController extends Controller
     public function index($id)
     {
         $carmodel= CarModel::where("id",$id)->get();
-        return view('infomodelo',compact('carmodel'));
+        $imagenbase = Imagenes::where("model_id",$id)->where("name","base")->get()[0]->url;
+        $imagennegra = Imagenes::where("model_id",$id)->where("name","frentenegro")->get()[0]->url;
+        $imagenizquierda = Imagenes::where("model_id",$id)->where("name","izquierda")->get()[0]->url;
+        $imagenderecha = Imagenes::where("model_id",$id)->where("name","derecha")->get()[0]->url;
+        return view('infomodelo',compact('carmodel','imagenbase','imagennegra','imagenizquierda','imagenderecha'));
     }
 
     public function gestionmodelos(){
@@ -81,6 +87,19 @@ class CarModelController extends Controller
     }
 
     public function borrarmodelo($id){
+        Log::create([
+            'user_id'=>Auth::user()->id,
+            'action'=>"delete",
+            'model_id'=>$id
+        ]);
+        $ofertas = Ofertas::where("model_id",$id);
+        foreach($ofertas->get() as $oferta){
+            $oferta->delete();
+        }
+        $usermodels = User_Model::where("model_id",$id);
+        foreach($usermodels->get() as $usermodel){
+            $usermodel->delete();
+        }
         $imagenes = Imagenes::where("model_id",$id);
         foreach($imagenes->get() as $imagen){
             $path = $imagen->url;
@@ -108,6 +127,11 @@ class CarModelController extends Controller
             'maletero'=>$request->maletero,
             'peso'=>$request->peso,
             'description2'=>$request->description2
+        ]);
+        Log::create([
+            'user_id'=>Auth::user()->id,
+            'action'=>"edit",
+            'model_id'=>$model->id
         ]);
         return $this->gestionmodelos();
     }

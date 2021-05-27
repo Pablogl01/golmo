@@ -12,8 +12,12 @@ class OfertasController extends Controller
 {
 
     public function gestionofertas(){
-        $ofertas= Ofertas::all();
-        return view('gestionofertas',compact('ofertas'));
+        $ofertas= Ofertas::where("status",1)->get();
+        $users = [];
+        foreach($ofertas as $oferta){
+            array_push($users,User::find($ofertas[0]->user_id)->email);
+        }
+        return view('gestionofertas',compact('ofertas','users'));
     }
 
     public function misofertas(){
@@ -37,11 +41,24 @@ class OfertasController extends Controller
         return $this->misofertas();
     }
 
-    public function veroferta($oferta){
+    public function veroferta($oferta){  
         $oferta = Ofertas::find($oferta);
         $carmodel = CarModel::where("id",$oferta->model_id)->get()[0]->name;
-        $user = User::find($oferta->user_id)->get()[0];
-        return view('veroferta',compact('oferta','carmodel','user'));
+        $user = User::where("id",$oferta->user_id)->get()[0];
+        $me = Auth::user()->role_id;
+        return view('veroferta',compact('oferta','carmodel','user','me'));
+    }
+
+    public function aceptaroferta($oferta){  
+        $oferta = Ofertas::find($oferta);
+        $oferta->update(["status"=>2]);
+        return $this->gestionofertas();
+    }
+
+    public function rechazaroferta($oferta){  
+        $oferta = Ofertas::find($oferta);
+        $oferta->update(["status"=>3]);
+        return $this->gestionofertas();
     }
 }
 

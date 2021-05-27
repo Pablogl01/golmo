@@ -15,11 +15,9 @@ class CreateLogTable extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->integer('user_id');
             $table->string('action');
-            $table->unsignedBigInteger('model_id');
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('model_id')->references('id')->on('car_models');
+            $table->integer('model_id');
             $table->timestamps();
         });
     }

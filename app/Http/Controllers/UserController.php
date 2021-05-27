@@ -56,9 +56,15 @@ class UserController extends Controller
 
     public function borraruser($id){
         $usermodel = User_Model::where("user_id",$id)->get();
+        $ofertas = Ofertas::where("user_id",$id)->get();
         if(count($usermodel)!=0){
             foreach($usermodel as $per){
                 $per->delete();
+            }
+        }
+        if(count($ofertas) != 0){
+            foreach($ofertas as $oferta){
+                $oferta->delete();
             }
         }
         $role_user = DB::table("role_user")->where("user_id",$id);
@@ -123,5 +129,46 @@ class UserController extends Controller
         $role_user->delete();
         $user->delete();
         return view('auth/login');
+    }
+
+    public function editarmiperfil(){
+        $user = Auth::user();
+        return view('editarmiperfil',compact('user'));
+    }
+
+    public function saveeditmiperfil(Request $request){
+        $user = Auth::user();
+        if($request->contraseña==null){
+            $user->update(['name'=>$request->nombre,
+                'email'=>$request->correo,
+                'gender'=>$request->gender,
+                'direccion'=>$request->direccion,
+                'birthdate'=>$request->nacimiento,
+                'phone_number'=>$request->telefono
+            ]);
+        }
+        else{
+            $user->update(['name'=>$request->nombre,
+                'email'=>$request->correo,
+                'password'=>Hash::make($request->contraseña),
+                'gender'=>$request->gender,
+                'direccion'=>$request->direccion,
+                'birthdate'=>$request->nacimiento,
+                'phone_number'=>$request->telefono
+            ]);  
+        }
+        return $this->profile();
+    }
+
+    public function privacidad(){
+        return view('privacidad');
+    }
+
+    public function nosotros(){
+        return view('nosotros');
+    }
+
+    public function intercambio(){
+        return view('intercambio');
     }
 }

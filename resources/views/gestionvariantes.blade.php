@@ -30,16 +30,16 @@
                                 <p class="h6" style="color:#2F2F2F;text-align:center;width:20%;">{{$variante->name}}</p>
                                 <p class="h6" style="color:#2F2F2F;text-align:center;width:15%;">{{$variante->type}}</p>
                                 @if($variante->type == "Color" || $variante->type == "Acabados")
-                                <div class="divimagencontenedorvariantes" style="background-image:url({{('storage/'.$variante->image)}});margin-left:3.75%;margin-right:3.75%;width:12.5%;height:125px;display:flex;flex-direction:row;justify-content:center;align-items:center;border:1px solid #D7D1D1;border-radius:100px;"></div>
+                                <div class="divimagencontenedorvariantes" style="background-image:url({{('../storage/'.$variante->image)}});margin-left:3.75%;margin-right:3.75%;width:12.5%;height:125px;display:flex;flex-direction:row;justify-content:center;align-items:center;border:1px solid #D7D1D1;border-radius:100px;"></div>
                                 @else
-                                <div class="divimagencontenedorvariantes" style="height:250px;width:20%;height:150px;display:flex;flex-direction:row;justify-content:center;align-items:center;">
-                                    <img src="{{('storage/'.$variante->image)}}" style="object-fit:contain;object-position:center;width:100%;height:100%;" alt="imagenvariante">
+                                <div class="divimagencontenedorvariantes" style="height:150px;width:20%;display:flex;flex-direction:row;justify-content:center;align-items:center;">
+                                    <img src="{{('../storage/'.$variante->image)}}" style="object-fit:contain;object-position:center;width:100%;height:100%;" alt="imagenvariante">
                                 </div>
                                 @endif
                                 <p class="h6" style="color:#2F2F2F;text-align:center;width:17.5%;">{{$variante->price}}</p>
                                 <p class="h6" style="color:#2F2F2F;text-align:center;width:7.5%;">{{$variante->gama_id}}</p>
                                 <div class="divgestionvariantes" style="display:flex;flex-direction:row;color:#2F2F2F;text-align:center;width:20%;">
-                                    <a href="" class="h6 subdivgesionvariantes" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:20%;">Editar</a>
+                                    <a href="{{route('editarvariante',$variante->id)}}" class="h6 subdivgesionvariantes" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:20%;">Editar</a>
                                     <a href="{{route('eliminarvariante',$variante->id)}}" class="h6 subdivgesionvariantes" style="text-decoration:none;color:#2F2F2F;text-align:center;width:25%;margin-left:10%;margin-right:20%;">Borrar</a>
                                 </div>
                             </div>

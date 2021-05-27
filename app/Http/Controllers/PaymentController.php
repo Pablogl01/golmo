@@ -28,13 +28,12 @@ class PaymentController extends Controller
                 $payPalConfig['client_id'],
                 $payPalConfig['secret']
             )
-            );
+        );
     }
 
     public function payWithPayPal($perso){
         /*setcookie("idmodelo",$perso,strtotime( '+30 days' ));*/
         $cantidad = User_Model::find($perso);
-
         $payer = new Payer();
         $payer->setPaymentMethod('paypal');
 
@@ -80,7 +79,7 @@ class PaymentController extends Controller
 
         if (!$paymentId || !$payerId || !$token) {
             $status = 'Lo sentimos! El pago a través de PayPal no se pudo realizar.';
-            return redirect('resultadocompra')->with(compact('status'));
+            return view('resultadocompra',compact('status'));
         }
 
         $payment = Payment::get($paymentId, $this->apiContext);

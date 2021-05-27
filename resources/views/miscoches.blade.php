@@ -16,28 +16,27 @@
                     <p class="h3 text-white" style="font-weight: bold;">Mis coches</p>
                     <p class="text-white">Aquí puede gestionar todas variantes de los modelos existentes en nuestra empresa. </p>
                     <div style="background-color:white;min-height:calc(70vh - 65px - 53px);padding-top:5vh;padding-bottom:5vh;padding-left:3vw;padding-right:3vw;margin-bottom:3vh;width:100%;">
-                        <div class="d-flex flex-row" style="width:100%;border-bottom:1px solid #D7D1D1;">
-                            <p class="h5 div1" style="color:#969696;text-align:center;width:20%;">Nombre</p>
-                            <p class="h5 div1" style="color:#969696;text-align:center;width:15%;">Tipo</p>
-                            <p class="h5 div1" style="color:#969696;text-align:center;width:20%;">URL Imagen</p>
-                            <p class="h5 div1" style="color:#969696;text-align:center;width:17.5%;">Precio</p>
-                            <p class="h5 div1" style="color:#969696;text-align:center;width:7.5%;">Gama</p>
-                            <p class="h5 div1" style="color:#969696;text-align:center;width:20%;">Acciones</p>
+                        <p class="h4" style="font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Mis configuraciones</p>
+                        <div style="display:flex;flex-direction:row;flex-wrap: wrap;">
+                            @if(count($misc) != 0)
+                                @for($i = 0;$i < count($misc); $i++)
+                                    <div class="mimodel" style="width:30%;margin-left:3%;margin-bottom:5%;">
+                                        <img src="{{('storage/'.$imagens[$i])}}" alt="imagenmodelo" style="width:100%;height:80%;border: 2px solid black;">
+                                        <hr>
+                                        <div style="display:flex;flex-direction:row;justify-content: center;">
+                                            <p style="margin:0;height:25px;padding-top:7px">{{$names[$i]}}</p>
+                                            @if($misc[$i]->status == "guardado")
+                                                <a class="nav-link" style="text-decoration:none;color:#292929;" href="{{route('payWithPayPal',$misc[$i])}}">Pagar</a>
+                                            @else
+                                                <p>Comprado</p>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endfor
+                            @else
+                                <p>todavia no hay coches guardados</p>
+                            @endif
                         </div>
-                        @if(count($misc) != 0)
-                            @for($i = 0;$i < count($misc); $i++)
-                                <p>{{$names[$i]}}</p>
-                                </br>
-                                <img src="{{('storage/'.$imagens[$i])}}" alt="imagenmodelo" style="width:50%;height:50%;">
-                                @if($misc[$i]->status == "guardado")
-                                    <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('payWithPayPal',$misc[$i])}}">Pagar</a>
-                                @else
-                                    <p>Comprado</p>
-                                @endif
-                            @endfor
-                        @else
-                            <p>todavia no hay coches guardados</p>
-                        @endif
                     </div>
                 </div>
             </div>

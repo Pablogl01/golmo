@@ -27,13 +27,10 @@
             <!-- Sidebar-->
             <div class="bg-light" id="sidebar-wrapper">
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">ENTREGA INMEDIATA</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">INTERCAMBIO</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">SOBRE NOSOTROS</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('nosotros')}}">SOBRE NOSOTROS</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('realizaroferta')}}">SOLICITAR OFERTA</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">PERSONALIZA TU VEHÍCULO</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">FINANCIACIÓN Y GARANTÍAS</a>
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">EVENTOS</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('home')}}">PERSONALIZA TU VEHÍCULO</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">SOPORTE</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('logout')}}"
                         onclick="event.preventDefault();
