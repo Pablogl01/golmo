@@ -10,30 +10,56 @@ use Illuminate\Http\Request;
 
     class UserController extends BaseController
     {
+
+    public function update(Request $request,$id){
+        $user=User::find($id);
+        foreach($request->all() as $key => $val){
+            if($key == "password"){
+                $user->$key = Hash::make($val);
+            }
+            else{
+                $user->$key = $val;
+            }
+        }
+        $user->save();
+        return 'Updated successfully.';
+    }
+
+    public function destroy($id){
+        $user=User::find($id);
+        $user->delete();
+        return 'Deleted successfully.';
+    }
+
+
     /**
     * User Register
     */
     public function reg(Request $request)
     {
-        $dataValidated=$request->validate([
-            'name' => 'required|min:3',
-            'role_id' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            'direccion' => 'required|min:6',
-            'gender' => 'required|min:4',
-            'phone_number' => 'required|min:9|max:9',
-            'birthdate' => 'required|min:5',
-        ]);
-        dd($dataValidated);
-        $dataValidated['password']=Hash::make($request->password);
-
-        
-        $user = User::create($dataValidated);
-
-        $token = $user->createToken('AppNAME')->accessToken;
-
-        return response()->json(['token' => $token], 200);
+        try{
+            $dataValidated=$request->validate([
+                'name' => 'required|min:3',
+                'role_id' => 'min:1',
+                'email' => 'required|email|unique:users',
+                'password' => 'required|min:6',
+                'direccion' => 'required|min:6',
+                'gender' => 'required|min:1',
+                'phone_number' => 'required|min:9',
+                'birthdate' => 'required|min:5',
+            ]);
+            $dataValidated['password']=Hash::make($request->password);
+            $dataValidated['role_id']="2";
+    
+            $user = User::create($dataValidated);
+    
+            $token = $user->createToken('AppNAME')->accessToken;
+    
+            return response()->json(['token' => $token], 200);
+        }
+        catch(\Exception $e){
+            dd($e);
+        }
     }
     
     /**
@@ -58,6 +84,7 @@ use Illuminate\Http\Request;
          *
          * @return \Illuminate\Http\JsonResponse
          */
+
         public function details()
         {
             return response()->json(['user' => auth()->user()], 200);
