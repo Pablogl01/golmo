@@ -136,6 +136,12 @@ class CarModelController extends Controller
         return $this->gestionmodelos();
     }
 
+
+    public function logs(){
+        $logss = Log::all();
+        return view('logs',compact('logss'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

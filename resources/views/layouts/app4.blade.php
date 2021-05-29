@@ -27,7 +27,7 @@
             <!-- Sidebar-->
             <div class="bg-light" id="sidebar-wrapper">
                 <div class="list-group list-group-flush">
-                    <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">INTERCAMBIO</a>
+                    <a class="list-group-item list-group-item-action bg-light" href="{{route('intercambio')}}">INTERCAMBIO</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('nosotros')}}">SOBRE NOSOTROS</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('realizaroferta')}}">SOLICITAR OFERTA</a>
                     <a class="list-group-item list-group-item-action bg-light" href="{{route('profile')}}">PERSONALIZA TU VEHÍCULO</a>

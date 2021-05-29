@@ -139,23 +139,32 @@ class UserController extends Controller
     public function saveeditmiperfil(Request $request){
         $user = Auth::user();
         if($request->contraseña==null){
-            $user->update(['name'=>$request->nombre,
-                'email'=>$request->correo,
-                'gender'=>$request->gender,
-                'direccion'=>$request->direccion,
-                'birthdate'=>$request->nacimiento,
-                'phone_number'=>$request->telefono
-            ]);
+            try {
+                $user->update(['name'=>$request->nombre,
+                    'email'=>$request->correo,
+                    'gender'=>$request->gender,
+                    'direccion'=>$request->direccion,
+                    'birthdate'=>$request->nacimiento,
+                    'phone_number'=>$request->telefono
+                ]);
+            }
+            catch(\Exception $e){
+                return redirect()->back();
+            }
         }
         else{
-            $user->update(['name'=>$request->nombre,
-                'email'=>$request->correo,
-                'password'=>Hash::make($request->contraseña),
-                'gender'=>$request->gender,
-                'direccion'=>$request->direccion,
-                'birthdate'=>$request->nacimiento,
-                'phone_number'=>$request->telefono
-            ]);  
+            try {
+                $user->update(['name'=>$request->nombre,
+                    'email'=>$request->correo,
+                    'password'=>Hash::make($request->contraseña),
+                    'gender'=>$request->gender,
+                    'direccion'=>$request->direccion,
+                    'birthdate'=>$request->nacimiento,
+                    'phone_number'=>$request->telefono
+                ]);
+            }catch(\Exception $e){
+                return redirect()->back();
+            }
         }
         return $this->profile();
     }

@@ -72,6 +72,7 @@ Route::get('/editarmiperfil', [App\Http\Controllers\UserController::class, 'edit
 Route::post('/saveeditmiperfil', [App\Http\Controllers\UserController::class, 'saveeditmiperfil'])->name('saveeditmiperfil')->middleware('auth');
 Route::get('/nosotros', [App\Http\Controllers\UserController::class, 'nosotros'])->name('nosotros')->middleware('auth');
 Route::get('/intercambio', [App\Http\Controllers\UserController::class, 'intercambio'])->name('intercambio')->middleware('auth');
+Route::get('/logs', [App\Http\Controllers\CarModelController::class, 'logs'])->name('logs')->middleware('auth');
 
 Route::get('/payWithPayPal/{perso}', [App\Http\Controllers\PaymentController::class, 'payWithPayPal'])->name('payWithPayPal')->middleware('auth');
 Route::get('/payPalStatus', [App\Http\Controllers\PaymentController::class, 'payPalStatus'])->name('payPalStatus')->middleware('auth');

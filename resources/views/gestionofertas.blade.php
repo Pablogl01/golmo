@@ -10,6 +10,7 @@
                 <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('gestionusers')}}">Gestionar usuarios</a>
                 <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #8A8A8A;" href="{{route('gestionofertas')}}">Gestionar solicitudes</a>
                 <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('gestionvariantes')}}">Gestionar variantes</a>
+                <a class="nav-link" style="text-decoration:none;color:#292929;border-bottom:5px solid #f8f9fa;" href="{{route('logs')}}">Logs</a>
             </nav>
             <div style="background-color:#191F22;min-height:calc(100vh - 65px - 53px);width:100%;">
                 <div style="margin-left:10%;margin-right:10%;padding-top:25px;">
@@ -31,9 +32,9 @@
                                 <p style="width:27.5%;text-align:center;">{{$ofertas[$i]->created_at}}</p>
                                 <p style="width:15%;text-align:center;">En espera</p>
                                 <div style="width:35%;text-align:center;">
-                                    <a style="color:#3b3b3b;width:30%;text-align:center;" href="{{route('veroferta',$ofertas[$i])}}">Ver</a>
-                                    <a style="color:#3b3b3b;width:30%;margin-left:5%;margin-right:5%;text-align:center;" href="{{route('aceptaroferta',$ofertas[$i])}}">Aceptar</a>
-                                    <a style="color:#3b3b3b;width:30%;text-align:center;" href="{{route('rechazaroferta',$ofertas[$i])}}">Rechazar</a>
+                                    <a style="text-decoration:none;color:#3b3b3b;width:30%;text-align:center;" href="{{route('veroferta',$ofertas[$i])}}">Ver</a>
+                                    <a style="text-decoration:none;color:#3b3b3b;width:30%;margin-left:5%;margin-right:5%;text-align:center;" href="{{route('aceptaroferta',$ofertas[$i])}}">Aceptar</a>
+                                    <a style="text-decoration:none;color:#3b3b3b;width:30%;text-align:center;" href="{{route('rechazaroferta',$ofertas[$i])}}">Rechazar</a>
                                 </div>
                             </div>
                             @endfor

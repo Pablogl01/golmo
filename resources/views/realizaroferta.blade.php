@@ -52,7 +52,7 @@
                             <label for="protect" class="col-md-4 col-form-label text-md-left">Acepta conforme has leido nuestras políticas de Privacidad y Protección de datos</label>
                         </div>
                         <div style="margin-top:15px;display:flex;flex-direction:row;justify-content:center;align-items:center;width:45%;">
-                            <button type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Actualizar</button>
+                            <button type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:100%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;">Crear</button>
                         </div>
                     </div>
                 </div>

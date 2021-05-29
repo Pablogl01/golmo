@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
     /**
     * User Register
     */
-    public function register(Request $request)
+    public function reg(Request $request)
     {
         $dataValidated=$request->validate([
             'name' => 'required|min:3',
@@ -22,11 +22,13 @@ use Illuminate\Http\Request;
             'password' => 'required|min:6',
             'direccion' => 'required|min:6',
             'gender' => 'required|min:4',
-            'phone_number' => 'required|min:9',
+            'phone_number' => 'required|min:9|max:9',
             'birthdate' => 'required|min:5',
         ]);
+        dd($dataValidated);
         $dataValidated['password']=Hash::make($request->password);
 
+        
         $user = User::create($dataValidated);
 
         $token = $user->createToken('AppNAME')->accessToken;

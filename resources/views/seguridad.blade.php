@@ -24,7 +24,7 @@
                         <p class="h4" style="margin-top:5vh;font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Borrar cuenta</p>
                         <div class="d-flex flex-row divcontenedor2" style="padding-top:5px;width:45%;">
                             <p class="text-secondary pperfil" style="width:25%;">Su cuenta</p>
-                            <a class="nav-link ml-4" style="padding:0 !important;text-decoration:none;color:#292929;" href="{{route('borrarmicuenta')}}">Borrar cuenta definitivamente</a>
+                            <a class="nav-link ml-4" style="padding:0 !important;text-decoration:none;color:red;font-weight:bold;" href="{{route('borrarmicuenta')}}">Borrar cuenta definitivamente</a>
                         </div>
                     </div>
                 </div>

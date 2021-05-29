@@ -10268,6 +10268,98 @@ h3 {
 
   .renove{
     width: 100% !important;
+    flex-direction: column !important;
+  }
+
+  .renove img, .renove p{
+    width: 90% !important;
+  }
+
+  #divencargarmodelo1{
+    margin-top:30vh !important;
+    margin-left:0 !important;
+    margin-right:0 !important;
+    width:100vw !important;
+  }
+
+  #divcontenedordoblemodelo{
+    display:flex;
+    flex-direction:column !important;
+  }
+
+  #divcontenedorimagenmodelo{
+    display:none !important;
+  }
+
+  #basemodeloboton{
+    display:none !important;
+  }
+
+  #botonencargarmodelo1{
+    display:none !important;
+  }
+
+  #botonbasemodelo{
+    position:absolute !important;
+    right:1% !important;
+    top:4% !important;
+  }
+
+  #divcontenedormodelo12{
+    height:35vh !important;
+  }
+
+  #divcontenedormodelo13{
+    width:100vw !important;
+    height:65vh !important;
+    display:flex;
+    flex-direction:column !important;
+  }
+
+  #divcontenedor122{
+    width:90% !important;
+    margin-bottom:15px;
+  }
+
+  #divcontenedor123{
+    width:90% !important;
+  }
+
+  #divcontenedor124{
+    width:100vw !important;
+    height:40vh !important;
+  }
+
+  #divcontenedor125{
+    display:flex;
+    flex-direction:column !important;
+  }
+
+  #divcontenedor126{
+    width:95vw !important;
+  }
+
+  .divcontenedor127{
+    display:none !important;
+  }
+
+  #divcontenedormodelo2{
+    margin-left:0 !important;
+    margin-right:0 !important;
+    width:100% !important;
+    margin-top:15vh !important;
+  }
+
+  #divcontenedorimagenmodelodos{
+    margin-top:5vh !important;
+    width:95% !important;
+    margin-left:2.5% !important;
+    margin-right:2.5% !important;
+  }
+
+  #titulomodelomodelos{
+    width:70% !important;
+    font-size:20px !important;
   }
 }
 
