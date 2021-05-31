@@ -18,17 +18,17 @@
                     <p class="text-white">Aqui se guardan todas las acciones de modelos</p>
                     <div style="display:flex;flex-direction:column;align-items: center;background-color:white;min-height:calc(70vh - 65px - 53px);padding-top:5vh;padding-bottom:5vh;padding-left:3vw;padding-right:3vw;margin-bottom:3vh;width:100%;">
                         <div class="d-flex flex-row" style="width:100%;border-bottom:1px solid #D7D1D1;">
-                            <p class="h5" style="color:#969696;text-align:center;width:21%;">Usuario</p>
-                            <p class="h5" style="color:#969696;text-align:center;width:21%;">Modelo afectado</p>
+                            <p class="h5" style="color:#969696;text-align:center;width:20%;">Usuario</p>
+                            <p class="h5" style="color:#969696;text-align:center;width:20%;">Modelo afectado</p>
                             <p class="h5" style="color:#969696;text-align:center;width:25%;">Acción</p>
                             <p class="h5" style="color:#969696;text-align:center;width:35%;">Fecha</p>
                         </div>
                         @for($i = 0; $i < count($logss);$i++)
-                            <div style="padding-top:10px;display:flex;flex-direction:row;justify-content: space-around;width:100%">
-                                <p>{{$logss[$i]->user_id}}</p>
-                                <p>{{$logss[$i]->model_id}}</p>
-                                <p>{{$logss[$i]->action}}</p>
-                                <p>{{$logss[$i]->created_at}}</p>
+                            <div style="padding-top:10px;display:flex;flex-direction:row;width:100%">
+                                <p style="text-align:center;width:20%;">{{$logss[$i]->user_name}}</p>
+                                <p style="text-align:center;width:20%;">{{$logss[$i]->model_id}}</p>
+                                <p style="text-align:center;width:25%;">{{$logss[$i]->action}}</p>
+                                <p style="text-align:center;width:35%;">{{$logss[$i]->created_at}}</p>
                             </div>
                         @endfor
                     </div>

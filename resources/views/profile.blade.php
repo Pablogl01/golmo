@@ -43,40 +43,40 @@
                     <div style="background-color:white;min-height:calc(70vh - 65px - 53px);padding-top:5vh;padding-bottom:5vh;padding-left:3vw;padding-right:3vw;margin-bottom:5vh;">
                         <p class="h4" style="font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Nombre de usuario</p>
                         <div class="d-flex flex-row divcontenedor2" style="padding-top:5px;width:45%;">
-                            <p class="text-secondary pperfil" style="width:25%;">Nombre</p>
-                            <p class="ml-4 pperfil" style="width:25%;">{{ __($user->name) }}</p>
+                            <p class="text-secondary pperfil" style="width:40%;">Nombre</p>
+                            <p class="ml-4 pperfil" style="width:60%;">{{ __($user->name) }}</p>
                         </div>
                         <p class="h4" style="font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Dirección de correo electrónico y rol</p>
                         <div class="d-flex flex-row divcontenedor" style="padding-top:5px;width:100%;">
                             <div class="d-flex flex-row divcontenedor2" style="width:45%;">
-                                <p class="text-secondary pperfil" style="width:25%;">Dirección</p>
-                                <p class="ml-4 pperfil" style="width:25%;">{{ __($user->email) }}</p>
+                                <p class="text-secondary pperfil" style="width:40%;">Dirección</p>
+                                <p class="ml-4 pperfil" style="width:60%;">{{ __($user->email) }}</p>
                             </div>
                             <div class="d-flex flex-row divcontenedor2" style="width:55%;">
-                                <p class="text-secondary pperfil" style="width:25%;margin-left: 3rem;">Rol</p>
-                                <p class="ml-4 pperfil" style="width:25%;">{{ __($rol) }}</p>
+                                <p class="text-secondary pperfil" style="width:40%;margin-left: 3rem;">Rol</p>
+                                <p class="ml-4 pperfil" style="width:60%;">{{ __($rol) }}</p>
                             </div>
                         </div>
                         <p class="h4" style="font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Fecha de nacimiento y teléfono</p>
                         <div class="d-flex flex-row divcontenedor" style="padding-top:5px;width:100%;">
                             <div class="d-flex flex-row divcontenedor2" style="width:45%;">
-                                <p class="text-secondary pperfil" style="width:25%;">Nacimiento</p>
-                                <p class="ml-4 pperfil" style="width:25%;">{{ __($user->birthdate) }}</p>
+                                <p class="text-secondary pperfil" style="width:40%;">Nacimiento</p>
+                                <p class="ml-4 pperfil" style="width:60%;">{{ __($user->birthdate) }}</p>
                             </div>
                             <div class="d-flex flex-row divcontenedor2" style="width:55%;">
-                                <p class="text-secondary pperfil" style="width:25%;margin-left: 3rem;">Teléfono</p>
-                                <p class="ml-4 pperfil" style="width:25%;">{{ __($user->phone_number) }}</p>
+                                <p class="text-secondary pperfil" style="width:40%;margin-left: 3rem;">Teléfono</p>
+                                <p class="ml-4 pperfil" style="width:60%;">{{ __($user->phone_number) }}</p>
                             </div>
                         </div>
                         <p class="h4" style="font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Dirección y género</p>
                         <div class="d-flex flex-row divcontenedor" style="padding-top:5px;width:100%;">
                             <div class="d-flex flex-row divcontenedor2" style="width:45%;">
-                                <p class="text-secondary pperfil" style="width:25%;">Dirección</p>
-                                <p class="ml-4 pperfil" style="width:25%;">{{ __($user->direccion) }}</p>
+                                <p class="text-secondary pperfil" style="width:40%;">Dirección</p>
+                                <p class="ml-4 pperfil" style="width:60%;">{{ __($user->direccion) }}</p>
                             </div>
                             <div class="d-flex flex-row divcontenedor2" style="width:55%;">
-                                <p class="text-secondary pperfil" style="width:25%;margin-left: 3rem;">Género</p>
-                                <p class="ml-4 pperfil" style="width:25%;">{{ __($gender) }}</p>
+                                <p class="text-secondary pperfil" style="width:40%;margin-left: 3rem;">Género</p>
+                                <p class="ml-4 pperfil" style="width:60%;">{{ __($gender) }}</p>
                             </div>
                         </div>
                         <a class="nav-link bt1" style="text-decoration:none;color:#292929;width:150px;cursor:pointer;">Editar datos</a>

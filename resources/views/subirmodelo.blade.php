@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         <div class="divcontenedorofertas" style="display:flex;flex-direction:row;width:75%;margin-top:10vh;">
-                            <input type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:45%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;" value="Sigiente">
+                            <input type="submit" id="button" style="padding-top:5px;padding-bottom:5px;width:45%; margin-bottom:5px; border:1px solid #7C7C7C;background-color:transparent; outline:none;font-size:15px;color:#7C7C7C;" value="Siguiente">
                         </div>
                     </div>
                 </div>

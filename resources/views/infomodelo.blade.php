@@ -24,7 +24,7 @@
                 <p style="color:white;font-size:15px;">Potencia máxima</p>
             </div>
             <div id="botonencargarmodelo1" style="text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;width:17.5%;">
-                <p style="border-radius:100px;padding-top:5px;padding-bottom:5px;width:100%;padding-left:15px;padding-right:15px;color:white;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;border:3px solid white;">Encargar</p>
+                <a href="{{route('perso',$carmodel[0]->id)}}" style="text-decoration:none;margin-bottom:1rem;border-radius:100px;padding-top:5px;padding-bottom:5px;width:100%;padding-left:15px;padding-right:15px;color:white;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center;border:3px solid white;">Encargar</a>
             </div>
         </div>
         <p style="margin-top:30px;color:white;font-size:14px;">Las especificaciones se muestran en valores Europeos</p>

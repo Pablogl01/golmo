@@ -37,9 +37,12 @@
             <img src="https://www.wallpapertip.com/wmimgs/3-37896_facebook-cover-photo-audi.jpg" alt="portadalogin" class="img-fluid" style="min-height:75% !important;">
             <div class="d-flex flex-column align-items-center" style="font-size:16px;margin-left:2%;margin-right:2%;text-align:center">
                 <div class="d-flex justify-content-center align-items-center pt-4">
-                    <p>Texto legal</p><p style="margin-left:15px;margin-right:15px;">|<p>
-                    <p>Condiciones de uso</p><p style="margin-left:15px;margin-right:15px;">|<p>
-                    <p>Declaración sobre protección de datos</p><p style="margin-left:15px;margin-right:15px;">|<p>
+                    <p>Texto legal</p>
+                    <p style="margin-left:15px;margin-right:15px;">|</p>
+                    <p>Condiciones de uso</p>
+                    <p style="margin-left:15px;margin-right:15px;">|</p>
+                    <p>Declaración sobre protección de datos</p>
+                    <p style="margin-left:15px;margin-right:15px;">|</p>
                     <p>Normativa de cookies</p>
                 </div>
                 <div class="d-flex justify-content-center align-items-center">
@@ -82,7 +85,7 @@
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-center" style="background-color:#FFFAFA;min-height:100% !important;">
             <div class="d-flex flex-column align-items-center">
-                <img src="http://drive.google.com/uc?export=view&id=1UpyHgQ9jYR4aaxlIfSoyWupH-JjGHJ8s" alt="logogolmo" style="max-width:20%;height:auto;">
+                <img id="imagenloginlogo" src="http://drive.google.com/uc?export=view&id=1UpyHgQ9jYR4aaxlIfSoyWupH-JjGHJ8s" alt="logogolmo" style="max-width:20%;height:auto;">
                 <div style="margin-top:20px;"><p style="font-size:20px;">GOLMO <span style="font-weight:bolder;">ID</span><p></div>
             </div>    
             <div class="d-flex flex-column ml-5 mr-5 mt-4">
