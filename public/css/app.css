@@ -54,10 +54,9 @@ body::-webkit-scrollbar-thumb {
   right:8vw;
   margin-top:3.75px;
   color:#141414;
-}
-
-#cuentagolmo:hover{
+  font-weight:bold;
   text-decoration:none;
+
 }
 
 html{
