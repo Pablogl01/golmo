@@ -13,7 +13,7 @@ use App\Models\CarModel;
 class ImagenesController extends Controller
 {
     public function nuevaimagen(Request $request,$gamaid){
-        $path=$request->file('url')->store('public');
+        $path=$request->file('url')->store('imagenes','public');
         Imagenes::create(['name'=>$request->nombre,
         'model_id'=>$request->modelo,
         'url'=>$path,
@@ -36,7 +36,7 @@ class ImagenesController extends Controller
 
     public function updateimagen(request $request, $imagen){
         $imagen = Imagenes::find($imagen);
-        $path=$request->file('url')->store('public');
+        $path=$request->file('url')->store('imagenes','public');
         $imagen->update(['name'=>$request->nombre,
                 'url'=>$path,
             ]);
