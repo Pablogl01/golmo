@@ -34,7 +34,7 @@
                                 <div class="divimagencontenedorvariantes" style="background-image:url({{('../storage/'.$variante->image)}});margin-left:3.75%;margin-right:3.75%;width:12.5%;height:125px;display:flex;flex-direction:row;justify-content:center;align-items:center;border:1px solid #D7D1D1;border-radius:100px;"></div>
                                 @else
                                 <div class="divimagencontenedorvariantes" style="height:150px;width:20%;display:flex;flex-direction:row;justify-content:center;align-items:center;">
-                                    <img src="{{('../storage/'.$variante->image)}}" style="object-fit:contain;object-position:center;width:100%;height:100%;" alt="imagenvariante">
+                                    <img src="{{asset('storage/'.$variante->image)}}" style="object-fit:contain;object-position:center;width:100%;height:100%;" alt="imagenvariante">
                                 </div>
                                 @endif
                                 <p class="h6" style="color:#2F2F2F;text-align:center;width:17.5%;">{{$variante->price}}</p>
