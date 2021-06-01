@@ -31,7 +31,7 @@ class VarianteController extends Controller
     }
 
     public function nuevavariante(Request $request){
-        $path=$request->file('imagen')->store('public','app','storage');
+        $path=$request->file('imagen')->store('public');
         Variante::create(['type'=>$request->tipo,
         'name'=>$request->nombre,
         'image'=>$path,
