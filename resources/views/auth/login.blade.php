@@ -94,7 +94,7 @@
                     <p style="font-size:15px;color:#706F6F">GOLMO S.A.</p>
                 </div>
                 <div class="d flex flex-column justify-content-center align-items-center mt-5">
-                    <form method="POST" action="{{ route('login') }}">
+                    <form method="POST" action="{{route('login')}}">
                         @csrf
                         <div>
                             <div>
