@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Average+Sans&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="https://ibb.co/4ttfH01">
+    <link rel="icon" type="image/png" href="https://i.ibb.co/dMMcRHm/golmo-new-logo.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">

@@ -85,7 +85,7 @@
         </div>
         <div class="col-md-4 d-flex flex-column justify-content-center" style="background-color:#FFFAFA;min-height:100% !important;">
             <div class="d-flex flex-column align-items-center">
-                <img id="imagenloginlogo" src="https://ibb.co/4ttfH01" alt="logogolmo" style="max-width:20%;height:auto;">
+                <img id="imagenloginlogo" src="https://i.ibb.co/dMMcRHm/golmo-new-logo.png" alt="logogolmo" style="max-width:20%;height:auto;">
                 <div style="margin-top:20px;"><p style="font-size:20px;">GOLMO <span style="font-weight:bolder;">ID</span><p></div>
             </div>    
             <div class="d-flex flex-column ml-5 mr-5 mt-4">
