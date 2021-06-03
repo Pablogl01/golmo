@@ -19,7 +19,7 @@
                         <p class="h4" style="font-weight: bold; border-bottom:1px solid #D7D1D1;padding-bottom:5px;">Nuestras políticas de privacidad</p>
                         <div id="privacidad-f" style="display:flex;flex-direction:row;justify-content:space-between;width:90%;">
                             <p id="privacidad-f1" style="width:40%">
-                            Acepto que Golmo S.A podría tratar mi información personal relativa a vehículos, servicios y productos para el desarrollo y la mejora de sus productos y servicios, para el análisis y corrección de fallos, y para la supervisión de productos, como parte de su mejora de estos.Podré revocar mi consentimiento en cualquier momento sin efecto retroactivo y sin aducir motivo alguno, esencialmente desde el apartado de «Privacidad» (Privacy) del Portal My Porsche con las opciones de configuración correspondientes.
+                            Acepto que Golmo S.A podría tratar mi información personal relativa a vehículos, servicios y productos para el desarrollo y la mejora de sus productos y servicios, para el análisis y corrección de fallos, y para la supervisión de productos, como parte de su mejora de estos.Podré revocar mi consentimiento en cualquier momento sin efecto retroactivo y sin aducir motivo alguno, esencialmente desde el apartado de «Privacidad» con las opciones de configuración correspondientes.
                             </p>
                             <div id="privacidad-f2" style="display:flex;flex-direction:column;justify-content:center;width:40%;">
                                 <p class="h5">Ejemplo de uso de sus datos:</p>
